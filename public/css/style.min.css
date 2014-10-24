@@ -1,0 +1,11 @@
+body{margin:0;padding:0;background-image:url( '../imgs/logo_full.png' );background-repeat:no-repeat;}
+.menu{float:right;text-align:left;margin:13px 13px 0 0;}
+.menu a{float:left;line-height:13px;margin:0 10px 0 0;}
+.genkey{position:relative;width:365px;height:200px;margin:0 auto;}
+.apiContainer{position:relative;width:500px;margin:0 auto;}
+.footer{position:relative;width:800px;height:20px;font-size:10px;text-align:center;margin:130px auto 0 auto;}
+h4{margin:0;}
+.introContainer{position:relative;width:500px;margin:0 0 0 300px;}
+.contactContainer{position:relative;width:400px;margin:0 auto;}
+.contactContainer span{width:100px;display:block;}
+

@@ -1,0 +1,8 @@
+<div ng-controller="getkey_controller" class="genkey">
+	<br/><br/>
+	<span>You can get two keys(private & public) after input host.</span><br/><br/>
+	<input type="text" ng-model="host" placeholder="input your host name." />
+	<button type="button" ng-click="getKey()">Get Keys</button>
+	<div ng-show="(key.host.length>0)"><br/>Host : {{ key.host }}<br/>Public Key : {{ key.public }}<br/>Private Key : {{ key.private }}<br/></div><br/>
+	example : g2.nexusguard.com
+</div>

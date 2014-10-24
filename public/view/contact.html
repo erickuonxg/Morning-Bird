@@ -1,0 +1,8 @@
+<div class="contactContainer" ng-controller="contactController">
+	<h1>Contact me !</h1>
+	<span>Name : </span><input type="text" ng-model="name" placeholder="your name" /><br/>
+	<span>Mail : </span><input type="text" ng-model="mail" placeholder="your mail" /><br/>
+	<span>Comment : </span><textarea rows="6" cols="60" type="text" ng-model="comment" placeholder="your comment" ></textarea><br/>
+	<div style="color:red;font-size:10px;margin:0 0 15px 0;">{{ status }}</div>
+	<button ng-disabled="sending" type="button" ng-click="sendmail()">Send</button>
+</div>

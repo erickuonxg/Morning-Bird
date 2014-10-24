@@ -1,0 +1,65 @@
+<div id="container_top" class="apiContainer" ng-controller="apiController">
+	<h2>API</h2>
+	<p>Method : Post</p>
+	<p>Host : http://g2demo.nxg.me:8080</p><br/>
+	<h3>/morningbird</h3>
+	<p>Request :<br/><br/>
+		(1) auth : {<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;service: 'Gmail',<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auth: {<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user: 'gmail.user@gmail.com',<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass: 'userpass'<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+		}<br/>
+		
+		(2) setting : {<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to: 'mail address 1', 'mail address 2' , ... <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject: 'mail subject',<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;html: 'html code'<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generateTextFromHTML: true || false<br/>
+		}<br/>
+		
+		(3) keys : { <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public: 'your public key',<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private: 'your private key'<br/>
+		}<br/><br/>
+	</p>
+	<p>Response :<br/>
+		<h3>- info : </h3>
+		<h4>info.messageId : </h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;most transports should return the final Message-Id value used with this property<br/>
+		<h4>info.envelope : </h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;includes the envelope object for the message<br/>
+		<h4>info.accepted : </h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is an array returned by SMTP transports (includes recipient addresses that were accepted by the server)<br/>
+		<h4>info.rejected : </h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is an array returned by SMTP transports (includes recipient addresses that were rejected by the server)<br/>
+		<h4>info.pending : </h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is an array returned by Direct SMTP transport. Includes recipient addresses that were temporarily rejected together with the server response<br/>
+		<h4>response : </h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is a string returned by SMTP transports and includes the last SMTP response from the server<br/><br/>
+		<h3>- err : </h3>this err is the error object if message failed 
+	</p><br/><br/>
+	
+	
+	<h4>Example (by nodejs)</h4>
+	<p>
+		var url : 'http://g2demo.nxg.me/morningbird'<br/>
+		var parms = { <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	auth : { <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		service : 'Gmail', <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		auth : { <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			user : 'gmail.user@gmail.com', <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			pass : 'userpass' <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		} <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	}, <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	setting : { <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		to: 'mail address 1', 'mail address 2' , <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		subject: 'mail subject', <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		html: 'html code', <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		generateTextFromHTML: true || false <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	}, <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	keys : { <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		public: 'your public key', <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		private: 'your private key' <br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	}<br/>
+		}<br/><br/>
+		$http( { method:'POST' , url:url , data:parms } ) <br/>
+	</p>
+	<button type="button" ng-click="back2Top()">Back to top</button>
+	<button type="button" ui-sref="genkey">Get Key</button>
+</div>
